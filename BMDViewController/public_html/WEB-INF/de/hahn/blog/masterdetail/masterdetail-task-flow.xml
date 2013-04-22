@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="masterdetail-task-flow">
+    <default-activity id="__1">showMasterDetail</default-activity>
+    <view id="showMasterDetail">
+      <page>/WEB-INF/de/hahn/blog/masterdetail/showMasterDetail.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

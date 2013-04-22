@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="de.hahn.blog.masterdetail.view"
+             ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding" className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/de/hahn/blog/masterdetail/showMasterDetail.jsff" usageId="de_hahn_blog_masterdetail_view_showMasterDetailPageDef"/>
+    <page path="/Start.jspx" usageId="de_hahn_blog_masterdetail_view_StartPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="de_hahn_blog_masterdetail_view_showMasterDetailPageDef" path="de.hahn.blog.masterdetail.view.pageDefs.showMasterDetailPageDef"/>
+    <page id="de_hahn_blog_masterdetail_view_StartPageDef" path="de.hahn.blog.masterdetail.view.pageDefs.StartPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="BMDAppModuleDataControl" Package="de.hahn.blog.masterdetail.model.adfbc.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true" SupportsFindMode="true" SupportsRangesize="true"
+                     SupportsResetState="true" SupportsSortCollection="true" Configuration="BMDAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.64.93" id="showMasterDetailPageDef"
+                Package="de.hahn.blog.masterdetail.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Regions" RangeSize="25" DataControl="BMDAppModuleDataControl" id="RegionsIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="RegionCountries" RangeSize="25" DataControl="BMDAppModuleDataControl" id="RegionCountriesIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RegionsIterator" id="RegionId">
+      <AttrNames>
+        <Item Value="RegionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RegionsIterator" id="RegionName">
+      <AttrNames>
+        <Item Value="RegionName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RegionsIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="RegionsIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="RegionsIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="RegionsIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="RegionsIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="BMDAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="BMDAppModuleDataControl"/>
+    <tree IterBinding="RegionCountriesIterator" id="RegionCountries">
+      <nodeDefinition DefName="de.hahn.blog.masterdetail.model.adfbc.views.CountriesView" Name="RegionCountries0">
+        <AttrNames>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="RegionId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RegionCountriesIterator" id="CreateInsert1" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="RegionsIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="RegionCountriesIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

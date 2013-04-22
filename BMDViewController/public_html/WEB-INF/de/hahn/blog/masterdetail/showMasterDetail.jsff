@@ -7,24 +7,24 @@
           <af:panelFormLayout id="pfl1">
             <af:inputText value="#{bindings.RegionId.inputValue}" label="#{bindings.RegionId.hints.label}" required="#{bindings.RegionId.hints.mandatory}"
                           columns="#{bindings.RegionId.hints.displayWidth}" maximumLength="#{bindings.RegionId.hints.precision}"
-                          shortDesc="#{bindings.RegionId.hints.tooltip}" id="it1" partialTriggers="cb12">
+                          shortDesc="#{bindings.RegionId.hints.tooltip}" id="it2">
               <f:validator binding="#{bindings.RegionId.validator}"/>
               <af:convertNumber groupingUsed="false" pattern="#{bindings.RegionId.format}"/>
             </af:inputText>
             <af:inputText value="#{bindings.RegionName.inputValue}" label="#{bindings.RegionName.hints.label}" required="#{bindings.RegionName.hints.mandatory}"
                           columns="#{bindings.RegionName.hints.displayWidth}" maximumLength="#{bindings.RegionName.hints.precision}"
-                          shortDesc="#{bindings.RegionName.hints.tooltip}" id="it2" partialTriggers="cb12">
+                          shortDesc="#{bindings.RegionName.hints.tooltip}" id="it1">
               <f:validator binding="#{bindings.RegionName.validator}"/>
             </af:inputText>
             <f:facet name="footer">
-              <af:panelGroupLayout layout="vertical" id="pgl2">
-                <af:panelGroupLayout layout="horizontal" id="pgl1">
+              <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelGroupLayout layout="horizontal" id="pgl2">
                   <af:commandButton actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}" partialSubmit="true"
-                                    id="cb4"/>
+                                    id="cb14"/>
                   <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous" disabled="#{!bindings.Previous.enabled}"
                                     partialSubmit="true" id="cb2"/>
-                  <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb3"/>
-                  <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb5"/>
+                  <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb5"/>
+                  <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb4"/>
                 </af:panelGroupLayout>
                 <af:panelGroupLayout id="pgl3">
                   <af:commandButton text="Submit" id="cb1"/>
@@ -32,8 +32,7 @@
                                     id="cb6"/>
                   <af:commandButton text="Delete Region" disabled="#{!bindings.Delete.enabled}" id="cb12" partialSubmit="true"
                                     actionListener="#{bindings.Delete.execute}"/>
-                  <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true"
-                                    id="cb8">
+                  <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback" immediate="true" id="cb8">
                     <af:resetActionListener/>
                   </af:commandButton>
                   <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" id="cb7"/>
@@ -43,7 +42,7 @@
           </af:panelFormLayout>
         </f:facet>
         <f:facet name="second">
-          <af:panelStretchLayout id="psl2" startWidth="0px" endWidth="0px">
+          <af:panelStretchLayout id="psl2" startWidth="0px" endWidth="0px" bottomHeight="49px">
             <f:facet name="bottom">
               <af:panelGroupLayout id="pgl4">
                 <af:commandButton actionListener="#{bindings.CreateInsert1.execute}" text="Create New Country" disabled="#{!bindings.CreateInsert1.enabled}"
@@ -63,24 +62,24 @@
                         fetchSize="#{bindings.RegionCountries.rangeSize}" rowBandingInterval="0"
                         selectedRowKeys="#{bindings.RegionCountries.collectionModel.selectedRow}"
                         selectionListener="#{bindings.RegionCountries.collectionModel.makeCurrent}" rowSelection="single" id="t1"
-                        partialTriggers="::cb9 ::cb4 ::cb2 ::cb3 ::cb5 ::cb8 ::cb7 ::cb13" editingMode="clickToEdit">
+                        partialTriggers="::cb9 ::cb13" editingMode="clickToEdit">
                 <af:column sortProperty="#{bindings.RegionCountries.hints.CountryId.name}" sortable="true"
-                           headerText="#{bindings.RegionCountries.hints.CountryId.label}" id="c2">
+                           headerText="#{bindings.RegionCountries.hints.CountryId.label}" id="c3">
                   <af:inputText value="#{row.bindings.CountryId.inputValue}" label="#{bindings.RegionCountries.hints.CountryId.label}"
                                 required="#{bindings.RegionCountries.hints.CountryId.mandatory}"
                                 columns="#{bindings.RegionCountries.hints.CountryId.displayWidth}"
                                 maximumLength="#{bindings.RegionCountries.hints.CountryId.precision}"
-                                shortDesc="#{bindings.RegionCountries.hints.CountryId.tooltip}" id="it3">
+                                shortDesc="#{bindings.RegionCountries.hints.CountryId.tooltip}" id="it4">
                     <f:validator binding="#{row.bindings.CountryId.validator}"/>
                   </af:inputText>
                 </af:column>
                 <af:column sortProperty="#{bindings.RegionCountries.hints.CountryName.name}" sortable="true"
-                           headerText="#{bindings.RegionCountries.hints.CountryName.label}" id="c3">
+                           headerText="#{bindings.RegionCountries.hints.CountryName.label}" id="c2">
                   <af:inputText value="#{row.bindings.CountryName.inputValue}" label="#{bindings.RegionCountries.hints.CountryName.label}"
                                 required="#{bindings.RegionCountries.hints.CountryName.mandatory}"
                                 columns="#{bindings.RegionCountries.hints.CountryName.displayWidth}"
                                 maximumLength="#{bindings.RegionCountries.hints.CountryName.precision}"
-                                shortDesc="#{bindings.RegionCountries.hints.CountryName.tooltip}" id="it5">
+                                shortDesc="#{bindings.RegionCountries.hints.CountryName.tooltip}" id="it3">
                     <f:validator binding="#{row.bindings.CountryName.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -90,7 +89,7 @@
                                 required="#{bindings.RegionCountries.hints.RegionId.mandatory}"
                                 columns="#{bindings.RegionCountries.hints.RegionId.displayWidth}"
                                 maximumLength="#{bindings.RegionCountries.hints.RegionId.precision}"
-                                shortDesc="#{bindings.RegionCountries.hints.RegionId.tooltip}" id="it4">
+                                shortDesc="#{bindings.RegionCountries.hints.RegionId.tooltip}" id="it5">
                     <f:validator binding="#{row.bindings.RegionId.validator}"/>
                     <af:convertNumber groupingUsed="false" pattern="#{bindings.RegionCountries.hints.RegionId.format}"/>
                   </af:inputText>
@@ -107,5 +106,6 @@
       </af:panelSplitter>
       <!-- id="af_one_column_stretched"   -->
     </f:facet>
+    <f:facet name="bottom"/>
   </af:panelStretchLayout>
 </jsp:root>
